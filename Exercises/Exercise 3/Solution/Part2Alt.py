@@ -1,0 +1,15 @@
+title = input("Movie Title:")
+director = input("Director:")
+banana = input("Year:")
+if banana.isnumeric() == False:
+    print("year must be numeric!")
+    exit()
+year = int(banana)
+duration = input("Duration (mins):")
+if duration.isnumeric() != True:
+    print("Duration must be numeric!")
+    exit()
+duration = int(duration)
+cert = input("Cert:")
+print(title, " was directed by ", director, " in ", year)
+print("Its duration is", duration, " mins and is a", cert, "certificate")
