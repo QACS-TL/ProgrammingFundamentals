@@ -39,8 +39,10 @@ def circle_area_calculator(radius, units):
 print("*** Rectangle Area Calculator ***")
 h = int(input("Enter the height (in cm): "))
 w = int(input("Enter the width (in cm): "))
-a = rectangle_area_calculator( width=w, height=h)
-rectangle_area_calculator(h, w, "metres")
+a1 = rectangle_area_calculator( width=w, height=h)
+print_area("rectangle",  f"of height {h} and width {w}", a1, "cms", 2)
+a2 = rectangle_area_calculator(h, w, "metres")
+print_area("rectangle",  f"of height {h} and width {w}", a2, "metres", 2)
 
 print("*** Triangle Area Calculator ***")
 triangle_area_calculator(h, w, "cm")
