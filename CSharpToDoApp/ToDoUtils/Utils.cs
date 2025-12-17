@@ -1,11 +1,31 @@
-﻿namespace ToDoUtils
+﻿using System.IO;
+using System.Text.Json;
+
+namespace ToDoUtils
 {
     public class Utils
     {
         // Global list of todos (equivalent to Python list)
-        static List<string> todos = new List<string> { "Make a cup of tea" };
+        static List<string> todos = new List<string> {  };
+        const string FILE_NAME = "todos.json";
 
-        public static void PrintTodos()
+        public static void LoadTodos()
+        {
+            if (File.Exists(FILE_NAME))
+            {
+                string json = File.ReadAllText(FILE_NAME);
+                todos = JsonSerializer.Deserialize<List<string>>(json)
+                        ?? new List<string>();
+            }
+        }
+
+        public static void SaveTodos()
+        {
+            string json = JsonSerializer.Serialize(todos);
+            File.WriteAllText(FILE_NAME, json);
+        }
+
+        private static void PrintTodos()
         {
             for (int i = 0; i < todos.Count; i++)
             {
