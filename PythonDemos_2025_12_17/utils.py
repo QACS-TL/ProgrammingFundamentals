@@ -1,9 +1,25 @@
-todos = ["Make a cup of tea"]
+import os
+import json
+
+todos = []
+FILE_NAME = "todos.json"
+
+def load_todos():
+    global todos
+    if os.path.exists(FILE_NAME):
+        file = open(FILE_NAME, "r")
+        todos = json.load(file)
+
+
+def save_todos():
+    global todos
+    file = open(FILE_NAME, "w")
+    json.dump(todos, file)
+
 
 def print_todos():
     for i, todo in enumerate(todos, start=1):
         print(f"{i}. {todo}")
-
 
 def print_menu():
     print("\nToDo Menu")
