@@ -8,6 +8,7 @@ class Program
 
     static void Main()
     {
+        Utils.LoadTodos();
         while (true)
         {
             Utils.PrintMenu();
@@ -21,13 +22,16 @@ class Program
             else if (choice == "2")
             {
                 Utils.AddTodo();
+                Utils.SaveTodos();
             }
             else if (choice == "3")
             {
                 Utils.RemoveTodo();
+                Utils.SaveTodos();
             }
             else if (choice == "4")
             {
+                Utils.SaveTodos();
                 Environment.Exit(0);
             }
             else
